@@ -1,6 +1,6 @@
-# Wasserzeitung-Einbindung – Zweckverband Grevesmühlen
+# WASSERZEITUNG-Einbindung – Zweckverband Grevesmühlen
 
-Dieses Repository stellt drei Methoden bereit, um einen redaktionell ausgewählten Artikel der Wasserzeitung auf Ihrer Website einzubinden. Der angezeigte Artikel wird bei jeder neuen Ausgabe von uns aktualisiert.
+Dieses Repository stellt drei Methoden bereit, um einen redaktionell ausgewählten Artikel der WASSERZEITUNG auf Ihrer Website einzubinden. Der angezeigte Artikel wird bei jeder neuen Ausgabe von uns aktualisiert.
 
 ---
 
@@ -57,7 +57,7 @@ Vollständig eigenständiger Block. Empfohlen für eine freistehende Einbindung,
 <iframe
   src="https://kaialisa.github.io/gvm-embed/iframe-widget.html"
   style="border:none;width:100%;height:775px;"
-  title="Wasserzeitung Artikel">
+  title="WASSERZEITUNG Artikel">
 </iframe>
 ```
 
