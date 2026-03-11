@@ -12,7 +12,7 @@ Der angezeigte Artikel ist in `article.json` hinterlegt und wird von uns gepfleg
 
 ## Option 1: JavaScript-Widget (ohne Styling)
 
-Für Ihren Webentwickler – gibt die Karte ohne eigenes CSS aus, sodass das vorhandene Design Ihrer Website vollständig übernommen werden kann.
+Für Ihren Webentwickler: gibt die Karte ohne eigenes CSS aus, sodass das vorhandene Design Ihrer Website vollständig übernommen werden kann.
 
 ```html
 <div id="gvm-widget"></div>
@@ -51,7 +51,7 @@ Bindet die Karte direkt in Ihre Seite ein. Styling passend zu Ihrem Corporate De
 
 ## Option 3: iFrame
 
-Vollständig eigenständiger Block – funktioniert überall auf der Seite ohne Anpassung. Empfohlen für eine freistehende Einbindung, z. B. in einem Inhaltsbereich oder einer Seitenleiste.
+Vollständig eigenständiger Block. Empfohlen für eine freistehende Einbindung, z. B. in einem Inhaltsbereich oder einer Seitenleiste.
 
 ```html
 <iframe
@@ -62,9 +62,3 @@ Vollständig eigenständiger Block – funktioniert überall auf der Seite ohne 
 ```
 
 **In Elementor:** HTML-Widget auf die Seite ziehen und den Code einfügen.
-
----
-
-## Hinweis zur Vorschau
-
-Die Dateien `preview.html` und `preview-iframe.html` dienen ausschließlich der lokalen Entwicklungsvorschau und sind nicht für die Einbindung auf Ihrer Website gedacht.
