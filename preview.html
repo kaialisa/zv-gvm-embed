@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vorschau – Wasserzeitung Widget</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400&family=Barlow+Semi+Condensed:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Barlow", sans-serif;
+      background: #f1f1f1;
+    }
+
+    .site-header {
+      background: #005b7f;
+      padding: 16px 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .site-header img {
+      height: 60px;
+      width: auto;
+    }
+
+    .section-wrap {
+      max-width: 1100px;
+      margin: 50px auto 60px;
+      padding: 0 20px;
+    }
+
+    .section-icon {
+      font-size: 30px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .section-wrap h2 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .elementor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px 30px;
+      align-items: stretch;
+      margin-bottom: 30px;
+    }
+
+    .elementor-post__card {
+      background-color: #fff;
+      border-radius: 3px;
+      box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      overflow: hidden;
+    }
+
+    .elementor-post__thumbnail img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .elementor-post__text {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .elementor-post__title {
+      font-family: "Barlow Semi Condensed", sans-serif;
+      font-size: 27px;
+      font-weight: 600;
+      line-height: 34px;
+      letter-spacing: -0.9px;
+      color: #009fe3;
+    }
+
+    .elementor-post__excerpt p {
+      font-family: "Barlow", sans-serif;
+      font-size: 25px;
+      font-weight: 400;
+      letter-spacing: -0.9px;
+      color: #333;
+    }
+
+    .elementor-post__read-more {
+      font-family: "Barlow", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #009fe3;
+      text-decoration: none;
+      margin-top: auto;
+      padding-top: 8px;
+      display: inline-block;
+    }
+
+    .alle-beitraege {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .alle-beitraege a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid #333;
+      padding: 8px 18px;
+      font-family: "Barlow", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #333;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all .25s;
+    }
+
+    .alle-beitraege a:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    .alle-beitraege svg {
+      width: 18px;
+      height: auto;
+      fill: currentColor;
+    }
+
+    #gvm-widget {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    #gvm-widget .gvm-card {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      background-color: #fff;
+      border-radius: 3px;
+      box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow .25s;
+    }
+
+    #gvm-widget .gvm-card:hover {
+      box-shadow: 0 0 20px 0 rgba(0,0,0,.25);
+    }
+
+    #gvm-widget .gvm-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+
+    #gvm-widget .gvm-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    #gvm-widget .gvm-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,.45);
+      color: #fff;
+      font-size: 11px;
+      padding: 4px 8px;
+    }
+
+    #gvm-widget .gvm-info {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    #gvm-widget .gvm-title {
+      font-family: "Barlow Semi Condensed", sans-serif;
+      font-size: 27px;
+      font-weight: 600;
+      line-height: 34px;
+      letter-spacing: -0.9px;
+      color: #009fe3;
+    }
+
+    #gvm-widget .gvm-excerpt {
+      font-family: "Barlow", sans-serif;
+      font-size: 25px;
+      font-weight: 400;
+      letter-spacing: -0.9px;
+      color: #333;
+    }
+
+    #gvm-widget .gvm-read-more {
+      font-family: "Barlow", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #009fe3;
+      text-decoration: none;
+      margin-top: auto;
+      padding-top: 8px;
+      display: inline-block;
+    }
+
+    @media (max-width: 800px) {
+      .elementor-grid { grid-template-columns: 1fr; }
+
+      .elementor-post__title {
+        font-size: 18px;
+        line-height: 1.35;
+        letter-spacing: -0.5px;
+      }
+
+      .elementor-post__excerpt p {
+        font-size: 14px;
+        letter-spacing: 0;
+      }
+
+      #gvm-widget .gvm-title {
+        font-size: 18px;
+        line-height: 1.35;
+        letter-spacing: -0.5px;
+      }
+
+      #gvm-widget .gvm-excerpt {
+        font-size: 14px;
+        letter-spacing: 0;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <img src="https://www.zweckverband-gvm.de/wp-content/uploads/2023/11/LOGO-ZVG_CMYK_35-Jahre-weiss-scaled.png" alt="Zweckverband Grevesmühlen">
+  </header>
+
+  <div class="section-wrap">
+
+    <div class="section-icon">
+      <i class="far fa-newspaper"></i>
+    </div>
+    <h2>Aktuelle Meldungen</h2>
+
+    <div class="elementor-grid">
+
+      <article class="elementor-post__card">
+        <div class="elementor-post__thumbnail">
+          <img src="https://www.zweckverband-gvm.de/wp-content/uploads/2025/08/Briefkasten-und-Wasserzeitung.jpg" alt="">
+        </div>
+        <div class="elementor-post__text">
+          <h3 class="elementor-post__title">Die neue Wasserzeitung ist da!</h3>
+          <div class="elementor-post__excerpt">
+            <p>Frisch gedruckt und voller spannender Einblicke rund ums Thema Wasser. Blättern Sie jetzt bequem online durch unsere Wasserzeitung oder laden Sie die Ausgabe als PDF</p>
+          </div>
+          <a class="elementor-post__read-more" href="#">weiterlesen »</a>
+        </div>
+      </article>
+
+      <article class="elementor-post__card">
+        <div class="elementor-post__thumbnail">
+          <img src="https://www.zweckverband-gvm.de/wp-content/uploads/2025/11/Handy-Stoerungsmeldung-2-scaled.jpg" alt="">
+        </div>
+        <div class="elementor-post__text">
+          <h3 class="elementor-post__title">Folgen Sie uns!</h3>
+          <div class="elementor-post__excerpt">
+            <p>Gern möchten wir Sie künftig noch näher an unserer Arbeit rund um die Wasserversorgung und Abwasserbeseitigung teilhaben lassen. Deshalb freuen wir uns sehr, Ihnen unsere</p>
+          </div>
+          <a class="elementor-post__read-more" href="#">weiterlesen »</a>
+        </div>
+      </article>
+
+      <div id="gvm-widget"></div>
+
+    </div>
+
+    <div class="alle-beitraege">
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.125 18.1738"><path d="M29.75,9.3948,21.5281,1.1735a.8479.8479,0,0,0-.601-.261L20.9124.9119a.8526.8526,0,0,0-.5956.2409.8642.8642,0,0,0-.0027,1.23l6.7618,6.7611H.7316a.8566.8566,0,1,0,0,1.7131H27.0759l-6.7591,6.7591a.8576.8576,0,0,0-.0214,1.2113.8462.8462,0,0,0,.61.2583.8949.8949,0,0,0,.621-.2556l8.2233-8.224A.8587.8587,0,0,0,29.75,9.3948Z" transform="translate(0.125 -0.9119)"></path></svg>
+        ALLE BEITRÄGE
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    fetch('./article.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        document.getElementById('gvm-widget').innerHTML =
+          '<a class="gvm-card" href="' + data.url + '" target="_blank" rel="noopener">' +
+            '<div class="gvm-img-wrap">' +
+              '<img src="' + data.image + '" alt="' + data.title + '">' +
+              '<span class="gvm-caption">' + data.caption + '</span>' +
+            '</div>' +
+            '<div class="gvm-info">' +
+              '<p class="gvm-title">' + data.title + '</p>' +
+              '<p class="gvm-excerpt">' + data.excerpt + '</p>' +
+              '<span class="gvm-read-more">weiterlesen »</span>' +
+            '</div>' +
+          '</a>';
+      })
+      .catch(function () {
+        document.getElementById('gvm-widget').innerHTML =
+          '<p style="font-family:Barlow,sans-serif;color:#555;padding:12px;">Inhalt konnte nicht geladen werden.</p>';
+      });
+  </script>
+
+</body>
+</html>

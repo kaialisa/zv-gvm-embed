@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iFrame Vorschau – Breiten-Test</title>
+  <style>
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f1f1f1;
+      font-family: sans-serif;
+      padding: 40px 20px;
+    }
+
+    .test-section {
+      margin-bottom: 50px;
+    }
+
+    .test-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #999;
+      margin-bottom: 12px;
+    }
+
+    .container {
+      background: #e0e0e0;
+      padding: 10px;
+    }
+
+    .container-full  { max-width: 100%; }
+    .container-600   { max-width: 600px; }
+    .container-400   { max-width: 400px; }
+    .container-280   { max-width: 280px; }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 520px;
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="test-section">
+    <p class="test-label">Volle Breite</p>
+    <div class="container container-full">
+      <iframe src="./iframe-widget.html" title="Wasserzeitung Artikel"></iframe>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <p class="test-label">600px</p>
+    <div class="container container-600">
+      <iframe src="./iframe-widget.html" title="Wasserzeitung Artikel"></iframe>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <p class="test-label">400px</p>
+    <div class="container container-400">
+      <iframe src="./iframe-widget.html" title="Wasserzeitung Artikel"></iframe>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <p class="test-label">280px</p>
+    <div class="container container-280">
+      <iframe src="./iframe-widget.html" title="Wasserzeitung Artikel"></iframe>
+    </div>
+  </div>
+
+</body>
+</html>
